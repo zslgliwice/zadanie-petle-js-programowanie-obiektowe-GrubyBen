@@ -13,16 +13,39 @@
 
 	P = ( <input type="number" id="x"> , <input type="number" id="y"> )
 
-	<input type="submit" value="Sprawdź ćwiartkę" onclick="ktora_cwiartka()">
+	<input type="submit" value="checkPart" onclick="whichPart()">
 
 	<div id="wynik"></div>
 	
 	<script>
 	
-		function ktora_cwiartka()
+		function whichPart()
 		{
-			
-			
+			let x = document.getElementById("x").value
+			let y = document.getElementById("y").value
+			let output = document.getElementById("wynik")
+			if(x==0 && y==0){
+				output.textContent = "Punkt P=(0,0) jest początkiem układu współrzędnych"
+
+			}
+			else if(x>0 && y>0){
+				output.textContent = "pierwsza ćwiartka"
+			}else if(x==0 || y==0){
+				output.textContent = "Punkt leży na jednej z osi układu"
+			}else if(x<0 && y<0){
+				output.textContent = "trzecia ćwiartka"
+			}else if(x<0 && y>0){
+				output.textContent = "druga ćwiartka"
+			}else if(x>0 && y<0){
+				output.textContent = "czwarta	 ćwiartka"
+			}
+
+
+
+
+			if (x == 15 && y == 96) {
+                wynik = "René Descartes był francuskim matematykiem, filozofem i pisarzem urodzonym w 1596 roku. Jest uznawany za twórcę kartezjańskiego układu współrzędnych.";
+            }
 		}
 
 	</script>
