@@ -15,21 +15,38 @@
 	<label> b = <input type="number" id="b"> </label>
 	<label> c = <input type="number" id="c"> </label>
 
-	<input type="submit" value="Informacje o liczbach" onclick="matematyka()">
+	<input type="submit" value="numberInfo" onclick="math()">
 
 	<div id="wynik"></div>
 	
 	<script>
 	
-		function matematyka()
+		function math()
 		{
 			var a = document.getElementById('a').value;
 			var b = document.getElementById('b').value;
 			var c = document.getElementById('c').value;
-			
-			
-		}
+			var output = document.getElementById("wynik");
 
+			var lowest = Math.min(a, b, c);
+			var highest = Math.max(a, b, c);
+			var absoluteA = Math.abs(a);
+			var absouletB = Math.abs(b);
+			var absoluteC = Math.abs(c);
+			var evenA = a % 2 === 0 ? "Tak" : "Nie";
+			var evenB = b % 2 === 0 ? "Tak" : "Nie";
+			var evenC = c % 2 === 0 ? "Tak" : "Nie";
+
+	output.innerHTML = 
+					"<p>Najmniejsza liczba: " + lowest + "</p>" +
+					 "<p>Największa liczba: " + highest + "</p>" +
+					 "<p>Wartość bezwzględna liczby a: " + absouletB + "</p>" +
+					 "<p>Wartość bezwzględna liczby b: " + absouletB + "</p>" +
+					 "<p>Wartość bezwzględna liczby c: " + absoluteC + "</p>" +
+					 "<p>Liczba a jest parzysta: " + evenA + "</p>" +
+					 "<p>Liczba b jest parzysta: " + evenB + "</p>" +
+					 "<p>Liczba c jest parzysta: " + evenC + "</p>";
+}
 	</script>
 
 </body>
