@@ -11,19 +11,29 @@
 
 <body>
 
-	<label> Podaj imię: <input type="text" id="imie"> </label>
-	<label> Podaj wiek: <input type="number" id="wiek"> </label>
+	<label> Podaj imię: <input type="text" id="getName"> </label>
+	<label> Podaj wiek: <input type="number" id="getAge"> </label>
 	
-	<input type="submit" value="Sprawdź udział" onclick="sprawdz()">
+	<input type="submit" value="check" onclick="check()">
 
 	<div id="wynik"></div>
 	
 	<script>
-	
-		function sprawdz()
+
+			let ticketPrice = 0
+			let output = document.getElementById("wynik")
+		function check()
 		{
-			
-			
+			let name = document.getElementById("getName").value
+			let age = document.getElementById("getAge").value
+			console.log(age)
+			if(age<16){
+				output.textContent = name+ " Nie może wziąć udziału w seansie"
+			}else if (age>=16 && age<=17){
+				output.textContent = name+ " Może wziąć udział, jeśli jest z opiekunem." +" cena biletu: "+12+"zł"
+			}else if(age>=18){
+				output.textContent = name +" Może wziąć udział. "+ "cena biletu:"+18+"zł"
+			}
 		}
 
 	</script>
