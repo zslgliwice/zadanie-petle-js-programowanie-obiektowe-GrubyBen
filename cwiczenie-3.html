@@ -1,54 +1,40 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html>
 
 <head>
-
-	<meta charset="utf-8">
-	<title>3 - Instrukcja warunkowa w JavaScript</title>
-	<link href="arkusz-cwiczenia.css" rel="stylesheet">
-	
+    <title>Wyznacz ćwiartkę</title>
+    <link rel="stylesheet" href="arkusz-cwiczenia.css">
 </head>
 
 <body>
+    P = ( <input type="number" id="x"> , <input type="number" id="y"> )
+    <input type="button" value="sprawdź ćwiartkę" onclick="partCheck()">
+    <p id="result"></p>
 
-	P = ( <input type="number" id="x"> , <input type="number" id="y"> )
+    <script>
+        function partCheck() {
+            const x = parseFloat(document.getElementById("x").value);
+            const y = parseFloat(document.getElementById("y").value);
+            let output = document.getElementById("result")
 
-	<input type="submit" value="checkPart" onclick="whichPart()">
-
-	<div id="wynik"></div>
-	
-	<script>
-	
-		function whichPart()
-		{
-			let x = document.getElementById("x").value
-			let y = document.getElementById("y").value
-			let output = document.getElementById("wynik")
-			if(x==0 && y==0){
-				output.textContent = "Punkt P=(0,0) jest początkiem układu współrzędnych"
-
-			}
-			else if(x>0 && y>0){
-				output.textContent = "pierwsza ćwiartka"
-			}else if(x==0 || y==0){
-				output.textContent = "Punkt leży na jednej z osi układu"
-			}else if(x<0 && y<0){
-				output.textContent = "trzecia ćwiartka"
-			}else if(x<0 && y>0){
-				output.textContent = "druga ćwiartka"
-			}else if(x>0 && y<0){
-				output.textContent = "czwarta	 ćwiartka"
-			}
-
-
-
-
-			if (x == 15 && y == 96) {
-                wynik = "René Descartes był francuskim matematykiem, filozofem i pisarzem urodzonym w 1596 roku. Jest uznawany za twórcę kartezjańskiego układu współrzędnych.";
+            if (isNaN(x) || isNaN(y)) {
+                output.textContent = "Podano nieprawidłowe współrzędne.";
+            } else if (x === 0 || y === 0) {
+                if (x === 0 && y === 0) {
+                    output.textContent = "Punkt P=(0,0) jest początkiem układu współrzędnych";
+                } else {
+                    output.textContent = "Punkt leży na jednej z osi układu";
+                }
+            } else {
+                const part = (x > 0 ? (y > 0 ? "I" : "IV") : (y > 0 ? "II" : "III"));
+                output.textContent = "Punkt P=(" + x + "," + y + ") znajduje się w ćwiartce " + part + " układu współrzędnych.";
             }
-		}
 
-	</script>
-
+            if (x === 15 && y === 96) {
+                output.innerHTML = "Easter egg: Jeżeli ktoś poda wartości P=(15,96), to skrypt zamiast wyniku pokaże krótki zarys życiorysu Kartezjusza (przygotowany wg Twojego uznania).";
+            }
+        }
+    </script>
 </body>
+
 </html>
