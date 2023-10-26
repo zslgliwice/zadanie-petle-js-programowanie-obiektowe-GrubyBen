@@ -3,29 +3,27 @@
 
 <head>
 
-	<meta charset="utf-8">
-	<title>5 - Instrukcja warunkowa w JavaScript</title>
-	<link href="arkusz-cwiczenia.css" rel="stylesheet">
-	
+    <meta charset="utf-8">
+    <title>5 - Instrukcja warunkowa w JavaScript</title>
+    <link href="arkusz-cwiczenia.css" rel="stylesheet">
+
 </head>
 
 <body>
+    <input type="submit" value="gateSelect" onclick="lottery()">
 
-	<label> Którą bramkę wybierasz: <input type="number" id="bramka"> </label>
+    <div id="result"></div>
 
-	<input type="submit" value="Wybieram bramkę" onclick="teleturniej()">
+    <script>
+        function lottery() {
+            var lucky = Math.floor(Math.random() * 3) + 1;
+            var playerChoice = prompt("Wybierz bramkę: 1, 2, lub 3");
 
-	<div id="wynik"></div>
-	
-	<script>
-	
-		function teleturniej()
-		{
-			var lucky = Math.floor(Math.random() * 3) + 1;
-			
-		}
-
-	</script>
+            var result = (playerChoice == lucky) ? "Hurra! W bramce nr " + lucky + " jest samochód!" : "Niestety! Samochód znajdował się w bramce nr " + lucky + "...";
+            alert(result);
+        }
+    </script>
 
 </body>
+
 </html>
